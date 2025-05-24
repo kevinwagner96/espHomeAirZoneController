@@ -46,6 +46,10 @@ ESPHome/
 - Controla los ventiladores y relés desde la interfaz de Home Assistant.
 - Visualiza la temperatura exterior reportada por el Arduino Mega.
 
+## Diagrama
+
+<img width="572" alt="Image" src="https://private-user-images.githubusercontent.com/23692189/447264373-29025eaa-cb48-4408-acc2-f489d6c3702f.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDgwOTczMDYsIm5iZiI6MTc0ODA5NzAwNiwicGF0aCI6Ii8yMzY5MjE4OS80NDcyNjQzNzMtMjkwMjVlYWEtY2I0OC00NDA4LWFjYzItZjQ4OWQ2YzM3MDJmLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MjQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTI0VDE0MzAwNlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU2OWI0MmYwNTk1Nzc2OTZiNjg4MDg4OGFmOGY5YjA1YWU1NGZmMTNlYzZhZTRhYTNiOTAwNWRmNzE2ZWU5MjgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.iXesPPFsOB7C3l9SmDBk-JK1rhEyZrXOEmG1kofDM70" style="max-width: 100%;">
+
 ## Créditos
 
 - Autor: Kevin Nelson Wagner
