@@ -7,6 +7,7 @@
 const int servoPins[NUM_SERVOS] = {34, 36, 38, 40, 42, 44, 46, 48, 50, 52};
 Servo servos[NUM_SERVOS];
 
+
 // Sensor DS18B20
 #define ONE_WIRE_BUS 2
 OneWire oneWire(ONE_WIRE_BUS);
@@ -28,7 +29,8 @@ int queueEnd = 0;
 int servoRunning = 0;
 bool commandInProgress = false;
 unsigned long lastCommandTime = 0;
-const unsigned long commandDelay = 500;  // tiempo entre comandos
+const unsigned long commandDelay = 1000;  // tiempo entre comandos
+int currentAngle[NUM_SERVOS] = {0};
 
 String inputString = "";
 bool receiving = false;
@@ -91,8 +93,7 @@ void loop() {
       lastCommandTime = millis();
 
       // Ejecutar comando
-      servos[cmd.index].attach(servoPins[cmd.index]);
-      servos[cmd.index].write(cmd.angle);  
+      moveServoSlow(cmd.index, cmd.angle, 1, 10);
       Serial.print("Servo: ");
       Serial.print(cmd.index);
       Serial.println(" ejecutado");      
@@ -139,4 +140,30 @@ void processCommand(const String& command) {
       }
     }
   }
+}
+
+void moveServoSlow(int index, int target, int step, int delayMs) {
+  // Obtener ángulo actual
+  int current = currentAngle[index];
+
+  // Adjuntar servo (en caso de que no esté activo)
+  servos[index].attach(servoPins[index]);
+
+  // Mover de forma gradual
+  if (current < target) {
+    for (int pos = current; pos <= target; pos += step) {
+      servos[index].write(pos);
+      currentAngle[index] = pos; // guardar último ángulo
+      delay(delayMs);
+    }
+  } else {
+    for (int pos = current; pos >= target; pos -= step) {
+      servos[index].write(pos);
+      currentAngle[index] = pos;
+      delay(delayMs);
+    }
+  }
+
+  // Detener señal para liberar el servo
+  servos[index].detach();
 }
